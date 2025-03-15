@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import Song from "./components/Song";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <section className="song-list">
+        <Song title ='Leave The Door Open' artist='Bruno Mars' duration='4:20' />
+        <Song title ='Lose Control' artist='Teddy Swims' duration='3:30' />
+        <Song title ='Crazy' artist='Gnarls Barkle' duration='3:02' />
+      </section>
     </div>
   );
 }

@@ -1,15 +1,16 @@
 import React from "react";
 import "./styles.css"
+import { Link } from "react-router-dom";
 
-const Song = ({ title, artist, duration, onAdd }) => {
-    return (
-        <div className="song">
-            <h3>{title}</h3>
-            <p>{artist}</p>
-            <p>{duration}</p>
-            {onAdd && <button onClick={onAdd}>Agregar a mi biblioteca</button>}
-        </div>
-    )
-}
+const Song = ({ idAlbum, strAlbum, strArtist, strStyle }) => {
+  return (
+    <li>
+      <h3>{strAlbum}</h3>
+      <p>Artista: {strArtist}</p>
+      <p>Stilo: {strStyle}</p>
+      <Link to={`/song/${idAlbum}`}>Ver detalles</Link>
+    </li>
+  );
+};
 
 export default Song;

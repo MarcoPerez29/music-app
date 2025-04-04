@@ -24,7 +24,7 @@ const DetailInfo = styled.p<DetailInfoProps>`
         if(score >= 2010) return 'green';
         if(score >= 2000) return 'gold';
         if(score >= 1900) return 'red';
-        return 'with';
+        return 'white';
     }};
 `
 

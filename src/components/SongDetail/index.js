@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import useFetchSearch from "../../hooks/useFetchSearch";
+import { DetailArticle, DetailImage, DetailInfo, DetailTitle } from "./style";
 
 const SongDetail = () => {
   const { id } = useParams();
@@ -8,22 +9,22 @@ const SongDetail = () => {
   );
 
   return (
-    <div className="song-detail">
+    <DetailArticle>
         {loading && <p>Cargando...</p>}
         {error && <p>Error al cargar los datos.</p>}
         {data.album && (
             <div>
-                <img 
+                <DetailImage 
                     alt={`${data.album[0].strAlbumCDart} Album Poster`}
                     src={data.album[0].strAlbumCDart} 
-                    width="200px"/>
-                <h2>{data.album[0].strAlbum}</h2>
-                <p>Artista: {data.album[0].strArtist}</p>
-                <p>Año: {data.album[0].intYearReleased}</p>
-                <p>{data.album[0].strDescriptionEN}</p>
+                />
+                <DetailTitle>{data.album[0].strAlbum}</DetailTitle>
+                <DetailInfo>Artista: {data.album[0].strArtist}</DetailInfo>
+                <DetailInfo score={data.album[0].intYearReleased}>Año: {data.album[0].intYearReleased}</DetailInfo>
+                <DetailInfo>{data.album[0].strDescriptionEN}</DetailInfo>
             </div>
         )}
-    </div>
+    </DetailArticle>
   );
 };
 

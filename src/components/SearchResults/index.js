@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Song from "../Song"
-import "./styles.css"
 import SearchBar from "../SearchBar";
 import useFetchSearch from "../../hooks/useFetchSearch"
+import { ResultInfo, ResultList, ResultSection } from "./style";
 
 const SearchResults = () => {
     const [artist, setArtist] = useState("Coldplay");
@@ -11,18 +11,18 @@ const SearchResults = () => {
         
     );
     return (
-        <section className="search-results">
+        <ResultSection>
             <SearchBar onSearch={setArtist}/>
-            {isLoading && <p>Cargando...</p>}
-            {error && <p>Hubo un problema al cargar los datos. Intenta nuevamente</p>}
+            {isLoading && <ResultInfo>Cargando...</ResultInfo>}
+            {error && <ResultInfo>Hubo un problema al cargar los datos. Intenta nuevamente</ResultInfo>}
             {data.album && (
-                <ul>
+                <ResultList>
                     {data.album.map((album) => (
                         <Song key={album.idAlbum} {...album} />
                     ))}
-                </ul>
+                </ResultList>
             )}
-        </section>
+        </ResultSection>
     )
 }
 

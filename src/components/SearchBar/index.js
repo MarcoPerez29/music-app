@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AddButton, SearchBarSection } from "./style";
 
 
 const SearchBar = ({ onSearch }) => {
@@ -11,7 +12,7 @@ const SearchBar = ({ onSearch }) => {
     };
 
     return (
-        <section className="search-bar">
+        <SearchBarSection>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -20,9 +21,9 @@ const SearchBar = ({ onSearch }) => {
                     onChange={(e) => setNameArtist(e.target.value)}
                     placeholder="Buscar artista..."
                     />
-                    <button type="submit">Buscar</button>
+                    <AddButton type="submit">Buscar</AddButton>
             </form>
-        </section>
+        </SearchBarSection>
     )
 }
 

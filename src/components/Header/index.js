@@ -1,11 +1,11 @@
 import React from "react";
-import "./styles.css";
+import { Title } from "./style";
 
 const Header = () => {
     
     return (
         <header>
-            <h1>Biblioteca Musical</h1>
+            <Title>Biblioteca Musical</Title>
         </header>
     )
 }
